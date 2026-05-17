@@ -4,6 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مُلهم | الصحيفة الإلكترونية للبودكاست السعودي</title>
+  <meta name="description" content="مُلهم صفحة سعودية تجمع الخبر والسرد والصوت، وتعرض مختارات من البودكاست السعودي والمقالات والتقارير والأخبار." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_SA" />
+  <meta property="og:title" content="مُلهم | نبض البودكاست السعودي" />
+  <meta property="og:description" content="صفحة سعودية تجمع الخبر والسرد والصوت في تجربة واحدة للبودكاست السعودي." />
+  <meta property="og:image" content="https://media.discordapp.net/attachments/1327007975604355153/1505598972473901187/content.png?ex=6a0b35cf&is=6a09e44f&hm=abdc2c4916bb0dc4566ac7c34a3792c694449d9601e531e7d7a90b20129891e3&=&format=webp&quality=lossless&width=1872&height=749" />
+  <meta property="og:image:secure_url" content="https://media.discordapp.net/attachments/1327007975604355153/1505598972473901187/content.png?ex=6a0b35cf&is=6a09e44f&hm=abdc2c4916bb0dc4566ac7c34a3792c694449d9601e531e7d7a90b20129891e3&=&format=webp&quality=lossless&width=1872&height=749" />
+  <meta property="og:image:width" content="1872" />
+  <meta property="og:image:height" content="749" />
+  <meta property="og:image:alt" content="بنر موقع مُلهم" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="مُلهم | نبض البودكاست السعودي" />
+  <meta name="twitter:description" content="صفحة سعودية تجمع الخبر والسرد والصوت في تجربة واحدة للبودكاست السعودي." />
+  <meta name="twitter:image" content="https://media.discordapp.net/attachments/1327007975604355153/1505598972473901187/content.png?ex=6a0b35cf&is=6a09e44f&hm=abdc2c4916bb0dc4566ac7c34a3792c694449d9601e531e7d7a90b20129891e3&=&format=webp&quality=lossless&width=1872&height=749" />
+  <meta name="twitter:image:alt" content="بنر موقع مُلهم" />
+  <link rel="icon" href="https://media.discordapp.net/attachments/937276649261633546/1505573694125244456/image.png?ex=6a0b1e44&is=6a09ccc4&hm=04f2443f20a4cd817d397a7b7a3acba01371588e388e08170cb185a10971a566&=&format=webp&quality=lossless" />
+  <link rel="shortcut icon" href="https://media.discordapp.net/attachments/937276649261633546/1505573694125244456/image.png?ex=6a0b1e44&is=6a09ccc4&hm=04f2443f20a4cd817d397a7b7a3acba01371588e388e08170cb185a10971a566&=&format=webp&quality=lossless" />
+  <link rel="apple-touch-icon" href="https://media.discordapp.net/attachments/937276649261633546/1505573694125244456/image.png?ex=6a0b1e44&is=6a09ccc4&hm=04f2443f20a4cd817d397a7b7a3acba01371588e388e08170cb185a10971a566&=&format=webp&quality=lossless" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +43,10 @@
     .chip{border:1px solid rgba(122,90,46,.12);background:rgba(122,90,46,.08);color:var(--brown)}
     .pill{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .8rem;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,.06);font-weight:700}
     .hero-badge{position:absolute;top:16px;left:16px;z-index:2;background:rgba(122,90,46,.82);color:#fff;font-weight:900;padding:.45rem .9rem;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+    .hero-main-badge{top:18px;left:18px;right:auto;max-width:calc(100% - 36px);white-space:nowrap;text-align:left}
     .image-frame{position:relative;overflow:hidden;border-radius:1.5rem;background:#e9e2d8}
-    .image-frame img{width:100%;height:100%;display:block;object-fit:cover}
+    .card .image-frame{aspect-ratio:16/9;min-height:0}
+    .image-frame img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
     .image-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.42) 100%);pointer-events:none}
     .section-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;font-weight:900;color:var(--brown);letter-spacing:-.02em}
     .section-sub{color:var(--olive);font-size:1.05rem;line-height:1.9}
@@ -42,7 +62,80 @@
     .overlay-hidden{opacity:0;pointer-events:none;transform:translateY(10px) scale(.99)}
     .overlay-visible{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
     .section-box{border:1px solid var(--line);border-radius:1.5rem;background:#fff;box-shadow:0 14px 30px rgba(122,90,46,.08)}
-    @media (max-width:640px){.hero-badge{font-size:.75rem}.ticker-chip{padding:0 1.1rem;font-size:.95rem}}
+    #detailModal{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+    #detailModal .detail-panel{max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow-y:auto;-webkit-overflow-scrolling:touch}
+    #detailModal .detail-panel .image-frame{aspect-ratio:16/9;max-height:360px}
+    #detailModal .detail-head{position:sticky;top:0;z-index:5;background:#fff}
+    @media (max-width:640px){
+      .hero-badge{font-size:.75rem}
+      .hero-main-badge{top:.75rem;left:.75rem;right:auto;padding:.35rem .65rem;max-width:calc(100% - 1.5rem);white-space:normal;text-align:left}
+      .ticker-chip{padding:0 1.1rem;font-size:.95rem}
+      .card .image-frame{aspect-ratio:16/9;height:auto!important}
+      #detailModal{padding:.75rem;align-items:flex-start}
+      #detailModal .detail-panel{max-height:calc(100vh - 1.5rem);max-height:calc(100dvh - 1.5rem);border-radius:1.25rem;overflow-y:auto}
+      #detailModal .detail-head{padding:1rem}
+      #detailTitle{font-size:1.65rem;line-height:1.35}
+      #detailModal .grid{display:block}
+      #detailModal .image-frame{aspect-ratio:16/9;max-height:220px}
+      #detailModal .content p{font-size:1rem;line-height:1.8}
+      #detailLead{font-size:1.08rem;line-height:1.9}
+    }
+
+    #homeFlag{object-fit:contain;background:#f7f3ec}
+    #detailImage{object-fit:contain;background:#f7f3ec}
+    body.modal-open{overflow:hidden;width:100%}
+    @media (max-width:768px){
+      .hero-main-badge{top:.75rem;left:.75rem;right:auto;max-width:calc(100% - 1.5rem);font-size:.72rem;padding:.35rem .6rem;white-space:normal;text-align:left;line-height:1.6}
+      #page-home .relative.px-5{padding-top:4.75rem!important}
+      #homeFlag{object-fit:contain!important;object-position:center!important}
+      .card .image-frame img{max-width:100%;max-height:100%;object-position:center}
+      #detailModal{position:fixed;inset:0;height:100dvh;max-height:100dvh;overflow-y:auto!important;-webkit-overflow-scrolling:touch;align-items:flex-start!important;justify-content:center!important;padding:.75rem!important}
+      #detailModal.overlay-visible{display:flex!important}
+      #detailModal .detail-panel{width:100%;max-height:none!important;min-height:auto;overflow:visible!important;border-radius:1.25rem!important;margin:0 auto 1rem auto}
+      #detailModal .detail-head{position:sticky;top:0;z-index:20;background:#fff;border-radius:1.25rem 1.25rem 0 0}
+      #detailModal .grid{display:block!important}
+      #detailModal .image-frame{height:auto!important;aspect-ratio:16/9!important;max-height:38vh!important;background:#f7f3ec}
+      #detailModal .image-frame img,#detailImage{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+      #detailTitle{font-size:1.55rem!important;line-height:1.45!important}
+      #detailLead{font-size:1.02rem!important;line-height:1.9!important}
+      #detailBody,#moreBody{overflow-wrap:anywhere;word-break:normal}
+      #detailBody p,#moreBody p{font-size:.98rem!important;line-height:1.85!important;margin-bottom:.45rem!important}
+      #moreBtn,#detailWatchArea a{width:100%;text-align:center}
+    }
+
+    /* FINAL MOBILE + CARD + PREVIEW FIXES */
+    .hero-main-badge{top:18px!important;right:18px!important;left:auto!important;max-width:min(360px,calc(100% - 36px));text-align:right!important;white-space:normal!important;line-height:1.6}
+    #programGrid,#articleGrid,#investigationGrid,#reportGrid,#newsGrid{align-items:stretch}
+    #programGrid>article,#articleGrid>article,#investigationGrid>article,#reportGrid>article,#newsGrid>article{height:100%;display:flex;flex-direction:column}
+    #programGrid>article>.p-6,#articleGrid>article>.p-6,#investigationGrid>article>.p-6,#reportGrid>article>.p-6,#newsGrid>article>.p-6{flex:1;display:flex;flex-direction:column}
+    #programGrid>article button,#articleGrid>article button,#investigationGrid>article button,#reportGrid>article button,#newsGrid>article button{margin-top:auto;align-self:flex-start}
+    .card .image-frame{width:100%;aspect-ratio:16/9;height:auto!important;max-height:none!important;flex:0 0 auto}
+    .card .image-frame img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+    #detailModal{position:fixed;inset:0;height:100dvh;max-height:100dvh;overflow:hidden!important;overscroll-behavior:none!important;touch-action:none}
+    #detailModal.overlay-visible{display:flex!important}
+    #detailModal .detail-panel{width:min(1120px,100%);max-height:calc(100dvh - 2rem)!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain!important;touch-action:pan-y;background:#fff}
+    #detailModal .detail-panel .image-frame{width:100%;aspect-ratio:16/9;max-height:340px!important;background:#f7f3ec}
+    #detailModal .detail-panel .image-frame img,#detailImage{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;background:#f7f3ec}
+    body.modal-open{position:fixed!important;overflow:hidden!important;width:100%!important;left:0;right:0;touch-action:none}
+    body.modal-open #detailModal,body.modal-open #detailModal .detail-panel{touch-action:pan-y}
+    @media (max-width:768px){
+      .hero-main-badge{top:.65rem!important;right:.65rem!important;left:auto!important;max-width:45%!important;font-size:.68rem!important;padding:.32rem .55rem!important;line-height:1.55!important}
+      #page-home .relative.px-5{padding-top:3.25rem!important}
+      #programGrid,#articleGrid,#investigationGrid,#reportGrid,#newsGrid{grid-template-columns:1fr!important;gap:1rem!important}
+      #programGrid>article,#articleGrid>article,#investigationGrid>article,#reportGrid>article,#newsGrid>article{min-height:0!important}
+      .card .image-frame{aspect-ratio:16/9!important;height:auto!important;max-height:240px!important}
+      .card .image-frame img{object-fit:cover!important}
+      #detailModal{padding:.75rem!important;align-items:flex-start!important;justify-content:center!important}
+      #detailModal .detail-panel{max-height:calc(100dvh - 1.5rem)!important;overflow-y:auto!important;border-radius:1.25rem!important;margin:0 auto!important}
+      #detailModal .detail-head{position:sticky!important;top:0!important;z-index:30!important;background:#fff!important;border-radius:1.25rem 1.25rem 0 0!important}
+      #detailModal .grid{display:block!important}
+      #detailModal .detail-panel .image-frame{max-height:32vh!important;aspect-ratio:16/9!important}
+      #detailTitle{font-size:1.45rem!important;line-height:1.45!important}
+      #detailLead{font-size:1rem!important;line-height:1.85!important}
+      #detailBody p,#moreBody p{font-size:.96rem!important;line-height:1.85!important;margin-bottom:.5rem!important}
+      #moreBtn,#detailWatchArea a{width:100%;text-align:center;justify-content:center}
+    }
+
   </style>
 </head>
 <body>
@@ -501,15 +594,15 @@
     {
       "title": "مقال: السرد الهادئ",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505418752290979900/9622e02c-3c95-4bf0-951c-ca89376ff5b0.png?ex=6a0a8df7&is=6a093c77&hm=8102a79b93db82942ebab7fdc0cf51706134af6ca7994258107e8bf6c0f836b5&=&format=webp&quality=lossless",
-      "lead": "يناقش المقال السرد الهادئ بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "السرد الهادئ مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> بطء الإيقاع عندما يتحول إلى قوة في الحوار، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يبني الثقة بين المقدم والمستمع لأنه يعطي الفكرة وقتها قبل الانتقال إلى سؤال جديد، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الحلقات التي تعتمد هذا الأسلوب تبدو أقرب إلى جلسة فهم لا إلى سباق عناوين، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل السرد الهادئ:</strong> الهدوء هنا طريقة لبناء الثقة؛ يمنح الضيف وقتًا كافيًا لتكوين الفكرة ويترك للمستمع فرصة متابعة التحول داخل الحوار.",
+        "<strong>زاوية النقاش في السرد الهادئ:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة السرد الهادئ:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> ينتهي المقال إلى أن الهدوء ليس ضعفًا في الإيقاع بل طريقة لضبط المعنى.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة السرد الهادئ من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في السرد الهادئ:</strong> المقال يرى أن انخفاض الإيقاع لا يعني ضعفًا، بل قدرة على جعل السؤال يفتح طبقة جديدة بدل مطاردة اللقطة السريعة.",
+        "<strong>خلاصة السرد الهادئ:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -521,15 +614,15 @@
     {
       "title": "مقال: الكتابة الصحفية",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505418940174700584/611c676c-b19b-41b7-8cd2-db61c64ef8ac.png?ex=6a0a8e24&is=6a093ca4&hm=857bac96b01cd2a9010adb909bccf0a060e350ab099683213c5e44c6da19d40a&=&format=webp&quality=lossless",
-      "lead": "يناقش المقال الكتابة الصحفية بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الكتابة الصحفية مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> تحويل الفكرة الصوتية إلى نص واضح، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تجعل القارئ يعرف الأهم أولًا ثم ينتقل إلى التفاصيل الأقل إلحاحًا، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> تحتاج البودكاستات إلى هذه الكتابة عند إعداد الوصف والعناوين والمقتطفات، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الكتابة الصحفية:</strong> تحويل الحلقة إلى نص يحتاج انتقاء أهم معلومة أولًا ثم ترتيب التفاصيل بحسب قربها من القارئ.",
+        "<strong>زاوية النقاش في الكتابة الصحفية:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الكتابة الصحفية:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> يبقى النص الجيد هو الذي يختصر دون أن يفرغ الحلقة من معناها.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الكتابة الصحفية من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الكتابة الصحفية:</strong> الكتابة الجيدة لا تلخص الصوت فقط؛ بل تحافظ على دقته وتمنحه شكلًا واضحًا يصلح للقراءة السريعة.",
+        "<strong>خلاصة الكتابة الصحفية:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -541,15 +634,15 @@
     {
       "title": "مقال: الصورة والمعنى",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505419661708361872/cc38094c-360a-46a7-832c-85ae971b2250.png?ex=6a0a8ed0&is=6a093d50&hm=f92739d48d0c27989888e4c5ffcde2813139b669efb33ebb662ee1efc40a5dc9&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الصورة والمعنى بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الصورة والمعنى مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> علاقة الصورة بالعنوان والجو العام للحلقة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تساعد الصورة المناسبة على توقع النبرة قبل القراءة أو المشاهدة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> اختيار صورة عشوائية يضعف الثقة حتى لو كان المحتوى قويًا، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الصورة والمعنى:</strong> الصورة المناسبة تسبق القراءة وتحدد نبرة التوقع، لذلك تصبح جزءًا من المعنى لا مجرد مساحة للزينة.",
+        "<strong>زاوية النقاش في الصورة والمعنى:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الصورة والمعنى:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> تنجح الصورة عندما تضيف وضوحًا لا عندما تسرق الانتباه.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الصورة والمعنى من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الصورة والمعنى:</strong> كلما اقتربت الصورة من روح الحلقة قلّ الالتباس بين العنوان والمحتوى، وزادت ثقة القارئ في المادة.",
+        "<strong>خلاصة الصورة والمعنى:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -561,15 +654,15 @@
     {
       "title": "مقال: الهوية الصوتية",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505419634185343117/b4ebc59d-ff93-41fe-878a-d01129aa4899.png?ex=6a0a8eca&is=6a093d4a&hm=b04c9a0c4e4230e1dc0bc210dbe97de4a19ff8335b87804144d34685ce545d80&=&format=webp&quality=lossless&width=1032&height=1032",
-      "lead": "يناقش المقال الهوية الصوتية بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الهوية الصوتية مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> البصمة التي تجعل البرنامج معروفًا من نبرته، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تتكون من المقدمة والموسيقى وطريقة السؤال وحضور المقدم، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الهوية لا تصنعها المؤثرات وحدها بل الاستمرارية في الأسلوب، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الهوية الصوتية:</strong> الهوية الصوتية تظهر في النبرة والوقفات والموسيقى وطريقة تقديم الضيف، وهي ما يجعل البرنامج معروفًا من أول دقائق.",
+        "<strong>زاوية النقاش في الهوية الصوتية:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الهوية الصوتية:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> كل برنامج يحتاج صوتًا خاصًا لا نسخة من برامج أخرى.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الهوية الصوتية من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الهوية الصوتية:</strong> المقال يربط بين الصوت والذاكرة؛ فالمستمع يعود إلى البرامج التي تملك طابعًا سمعيًا واضحًا لا يتغير كل حلقة.",
+        "<strong>خلاصة الهوية الصوتية:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -581,15 +674,15 @@
     {
       "title": "مقال: البودكاست النسائي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505419687343947837/e5d43c1d-076c-413f-9ce0-ac440d2537cc.png?ex=6a0a8ed6&is=6a093d56&hm=bb7a34f7622c846d3f2f2d10052800a0d752bff0291d2ff6e199e4240a3e90d7&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال البودكاست النسائي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "البودكاست النسائي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> حضور الأصوات النسائية في المشهد الصوتي، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يفتح موضوعات وتجارب وأسئلة لا تظهر دائمًا في القوالب العامة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> تزداد قيمته عندما يقدم الضيفة بصفتها صاحبة تجربة لا مجرد عنوان ناعم، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل البودكاست النسائي:</strong> حضور الأصوات النسائية يفتح زوايا اجتماعية ومهنية وثقافية لا تظهر دائمًا في الحوارات العامة.",
+        "<strong>زاوية النقاش في البودكاست النسائي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة البودكاست النسائي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> يتسع المشهد السعودي كلما تعددت الأصوات وزوايا النظر.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة البودكاست النسائي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في البودكاست النسائي:</strong> القيمة لا تأتي من التصنيف وحده، بل من قدرة الحلقة على تقديم تجربة كاملة تقودها رؤية واضحة وصوت مستقل.",
+        "<strong>خلاصة البودكاست النسائي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -601,15 +694,15 @@
     {
       "title": "مقال: الاختصار الذكي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505419719891751022/d354065b-cd15-42d6-be87-0fdf726629ca.png?ex=6a0a8ede&is=6a093d5e&hm=751f38558da7da1c3341d8ed59a1f38e765128bee602bdb5331534063112abf2&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الاختصار الذكي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الاختصار الذكي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> قول الكثير دون إطالة مرهقة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يعتمد على اختيار الجملة الحاسمة وحذف ما لا يغير الفكرة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> لا يعني الاختصار إلغاء التفاصيل المهمة بل ترتيبها، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الاختصار الذكي:</strong> الاختصار يحذف الزائد ولا يحذف المعنى، لذلك يحتاج محررًا يعرف الفرق بين الجملة الطويلة والجملة الضرورية.",
+        "<strong>زاوية النقاش في الاختصار الذكي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الاختصار الذكي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> القارئ والمستمع يتذكران النص المكثف عندما يكون دقيقًا ومباشرًا.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الاختصار الذكي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الاختصار الذكي:</strong> حين ينجح الاختصار يشعر القارئ أن الفكرة وصلت كاملة من دون إرهاق، وأن النص لم يضحِّ بالسياق من أجل السرعة.",
+        "<strong>خلاصة الاختصار الذكي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -621,15 +714,15 @@
     {
       "title": "مقال: الفصل بين الخبر والرأي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505419747590672474/8677bf01-7b0e-4b33-b719-35fa06d45d17.png?ex=6a0a8ee5&is=6a093d65&hm=b6283895e2e44c95b9b9a8dbc9a2a3fe745916681a9587af1ef39dd588f68b1c&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الفصل بين الخبر والرأي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الفصل بين الخبر والرأي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> حماية القارئ من خلط المعلومة بالتوجيه، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يضع الواقعة في مكانها ويترك التحليل لمساحة معلنة وواضحة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> هذا الفصل ضروري في المواد التي تمس أشخاصًا أو جهات أو قرارات عامة، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الفصل بين الخبر والرأي:</strong> الفصل يحمي القارئ من الخلط بين المعلومة والتحليل، ويجعل المادة أكثر صدقًا في عرضها.",
+        "<strong>زاوية النقاش في الفصل بين الخبر والرأي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الفصل بين الخبر والرأي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> تزداد ثقة الجمهور عندما يعرف أين تنتهي المعلومة وأين يبدأ الرأي.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الفصل بين الخبر والرأي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الفصل بين الخبر والرأي:</strong> الرأي له مكانه عندما يكون معلنًا وواضحًا، أما الخبر فيبقى قائمًا على الدقة والموضوعية والسياسة التحريرية.",
+        "<strong>خلاصة الفصل بين الخبر والرأي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -641,15 +734,15 @@
     {
       "title": "مقال: العنوان الافتتاحي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505419820403789934/16254d63-9663-4b7d-ad6d-6bb0fba099d5.png?ex=6a0a8ef6&is=6a093d76&hm=2c96e889776617553b5182b81d4e495f76b7e372f74d90d651a3e5ab1d76b599&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال العنوان الافتتاحي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "العنوان الافتتاحي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> أول وعد يقدمه النص للقارئ، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يجب أن يحمل الفكرة الأساسية دون مبالغة أو تضليل، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> العنوان في البودكاست قد يصنع قرار المشاهدة قبل صورة الضيف، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل العنوان الافتتاحي:</strong> العنوان الأول هو وعد المادة؛ إذا بالغ كسر الثقة، وإذا ضعف لم يمنح الحلقة حقها.",
+        "<strong>زاوية النقاش في العنوان الافتتاحي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة العنوان الافتتاحي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> العنوان الجيد يفتح الباب ولا يحرق كل التفاصيل.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة العنوان الافتتاحي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في العنوان الافتتاحي:</strong> المقال يدعو إلى عنوان يختصر الفكرة الكبرى ويترك مساحة للتفاصيل داخل النص لا في العنوان وحده.",
+        "<strong>خلاصة العنوان الافتتاحي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -661,15 +754,15 @@
     {
       "title": "مقال: الفقرة الأولى",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505419877362565181/8a1f71b2-eff5-40ad-8ae1-3c55d8a0bf01.png?ex=6a0a8f04&is=6a093d84&hm=770d0bf86295d3e5e73fe414ef2a7a1c7632fef81ace2dedcc7f28962a09c519&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الفقرة الأولى بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الفقرة الأولى مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> المدخل الذي يحدد قيمة الاستمرار في القراءة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تحتاج إلى أهم زاوية بسرعة وبأقل عدد من الكلمات، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> عندما تطول البداية يضيع القارئ قبل الوصول إلى الفكرة، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الفقرة الأولى:</strong> الفقرة الأولى تحدد اتجاه القراءة؛ تبدأ بالأهم وتمنع القارئ من البحث الطويل عن سبب الموضوع.",
+        "<strong>زاوية النقاش في الفقرة الأولى:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الفقرة الأولى:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الفقرة الأولى الناجحة تمنح النص اتجاهًا واضحًا.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الفقرة الأولى من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الفقرة الأولى:</strong> كل افتتاح ناجح يجيب بسرعة عن ماذا حدث ولماذا يستحق المتابعة، ثم يترك التفاصيل تتدرج بهدوء.",
+        "<strong>خلاصة الفقرة الأولى:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -681,15 +774,15 @@
     {
       "title": "مقال: لغة الضيف",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505420532705660962/52436256-6a27-41ce-b4b4-fced5243842c.png?ex=6a0a8fa0&is=6a093e20&hm=2d23743814ff4ed2270c7d5d11cd20c974f3efc408bf0f0898967a39b79e4e83&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال لغة الضيف بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "لغة الضيف مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> حفظ صوت الضيف دون تهذيب زائد، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> اللغة تكشف خلفية الضيف وطريقة تفكيره وحدود تجربته، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> التدخل التحريري مطلوب فقط لتوضيح المعنى لا لمحو الشخصية، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل لغة الضيف:</strong> لغة الضيف ليست اقتباسًا حرفيًا دائمًا؛ هي روح التجربة التي ينبغي نقلها بأمانة من غير تشويه أو مبالغة.",
+        "<strong>زاوية النقاش في لغة الضيف:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة لغة الضيف:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> كلما بقيت اللغة قريبة من صاحبها صار الحوار أصدق.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة لغة الضيف من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في لغة الضيف:</strong> يحافظ النص الجيد على مفردات الضيف حين تكون دالة، ويشرحها عندما تحتاج سياقًا يساعد القارئ على الفهم.",
+        "<strong>خلاصة لغة الضيف:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -701,15 +794,15 @@
     {
       "title": "مقال: الإصغاء الجيد",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505420663366615040/b12707a1-af00-4c72-8b4d-1a617d7b5ffd.png?ex=6a0a8fbf&is=6a093e3f&hm=2ceb6b92e1143f068562a8018903186ea59dbc21e97308d59bf60a6e5e60cbd3&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الإصغاء الجيد بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الإصغاء الجيد مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> الاستماع بوصفه أداة تحرير لا مجاملة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> المقدم الذي يصغي يلتقط السؤال التالي من جواب الضيف نفسه، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الإصغاء يمنع المقاطعة الفارغة ويجعل الحوار متدرجًا، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الإصغاء الجيد:</strong> الإصغاء يظهر في السؤال الثاني أكثر من السؤال الأول؛ لأنه يكشف هل فهم المقدم الإجابة أم اكتفى بالانتقال.",
+        "<strong>زاوية النقاش في الإصغاء الجيد:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الإصغاء الجيد:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الحلقة المتماسكة تبدأ من أذن تعرف متى تنتظر ومتى تسأل.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الإصغاء الجيد من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الإصغاء الجيد:</strong> المقال يضع الإصغاء في قلب الحوار، لأن الحلقة القوية تنمو من متابعة التفاصيل لا من قائمة أسئلة جاهزة فقط.",
+        "<strong>خلاصة الإصغاء الجيد:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -721,15 +814,15 @@
     {
       "title": "مقال: الإخراج",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505423093470855279/176e2f12-b604-42cb-9ab7-ac0793428704.png?ex=6a0a9202&is=6a094082&hm=0c3cdb399f1eb929917352a4aa34e1ec8a937ac36353150803353bcb9fb1cc4e&=&format=webp&quality=lossless",
-      "lead": "يناقش المقال الإخراج بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الإخراج مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> تنظيم الصوت والصورة داخل تجربة واحدة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> الإخراج يضبط الانتقال بين اللقطات والسكوت والموسيقى وحركة الكاميرا، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> كل قرار بصري أو صوتي يؤثر في فهم الحلقة لا في شكلها فقط، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الإخراج:</strong> الإخراج يرتب الإضاءة والصوت والانتقال البصري حتى لا يتنافس الشكل مع مضمون الحديث.",
+        "<strong>زاوية النقاش في الإخراج:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الإخراج:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الإخراج الناجح يجعل التفاصيل تعمل من دون أن يشعر المشاهد بثقلها.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الإخراج من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الإخراج:</strong> نجاح الإخراج يظهر عندما يشعر المتابع بالراحة داخل الحلقة من غير أن ينتبه لكل قرار فني خلف الكاميرا.",
+        "<strong>خلاصة الإخراج:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -741,15 +834,15 @@
     {
       "title": "مقال: التوازن",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505423327274209402/c45c93a4-460c-43c6-9bd6-ecd144074a3a.png?ex=6a0a923a&is=6a0940ba&hm=a859e517096d53165ef85a5e345445afd85c94d3f42b64295a015004583ecf11&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال التوازن بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "التوازن مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> منح الأطراف والأفكار مساحة عادلة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يظهر التوازن في السؤال وفي ترتيب الحجج وفي اختيار الاقتباس، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> يفشل النص عندما يدفع القارئ إلى موقف جاهز قبل عرض المعطيات، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل التوازن:</strong> التوازن يمنع البرنامج من الانحياز إلى الإبهار أو الجفاف؛ يعطي الضيف مساحة ويحفظ حق الجمهور في الوضوح.",
+        "<strong>زاوية النقاش في التوازن:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة التوازن:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> التوازن لا يعني الحياد البارد بل الإنصاف في البناء.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة التوازن من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في التوازن:</strong> المقال يربط التوازن باختيار الأسئلة، مدة الإجابة، موقع الصورة، وحجم التدخل التحريري.",
+        "<strong>خلاصة التوازن:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -761,15 +854,15 @@
     {
       "title": "مقال: الترتيب",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505422830244728952/e56a6e63-1a61-4503-811b-6ff378160a12.png?ex=6a0a91c4&is=6a094044&hm=0cd38238bab237fcae8572328310b653f90ea8477f5021bf82f9e5876e5e5dc3&=&format=webp&quality=lossless",
-      "lead": "يناقش المقال الترتيب بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الترتيب مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> بناء الفكرة خطوة بعد خطوة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يجعل الموضوع الطويل قابلًا للمتابعة دون قفزات مربكة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الترتيب يبدأ من العنوان ويمتد إلى الفقرات والصورة وزر المشاهدة، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الترتيب:</strong> ترتيب المحاور يصنع فرقًا واضحًا في الفهم؛ البداية الخاطئة قد تجعل التفاصيل المهمة تبدو بعيدة.",
+        "<strong>زاوية النقاش في الترتيب:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الترتيب:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> النص المرتب يترك أثرًا أوضح من نص مزدحم بالمعلومات.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الترتيب من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الترتيب:</strong> حين يتدرج البرنامج من السؤال العام إلى الدقيق يصبح المستمع قادرًا على بناء صورة كاملة من غير قفزات مفاجئة.",
+        "<strong>خلاصة الترتيب:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -781,15 +874,15 @@
     {
       "title": "مقال: التلقي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505422607783170159/1e97b25e-eacd-4612-bdad-8e9f0e125a9a.png?ex=6a0a918f&is=6a09400f&hm=0531a9a65e0e2637a1ca9ae9a9902d5e7228cc0e01c449e6ec91798a0f755fff&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال التلقي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "التلقي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> طريقة وصول الحلقة إلى الجمهور، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يتأثر التلقي بالمنصة والوقت والعنوان وطبيعة المقطع المتداول، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الفكرة الواحدة قد تفهم بشكل مختلف إذا خرجت من سياقها الكامل، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل التلقي:</strong> التلقي لا ينتهي عند نشر الحلقة؛ يبدأ بعد ذلك في التعليقات والمقاطع المتداولة وطريقة اقتباس الجمهور.",
+        "<strong>زاوية النقاش في التلقي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة التلقي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> فهم التلقي يساعد صانع المحتوى على حماية المعنى.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة التلقي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في التلقي:</strong> المقال ينظر إلى الجمهور بوصفه شريكًا في حياة المحتوى، لا مجرد رقم مشاهدة يظهر أسفل الفيديو.",
+        "<strong>خلاصة التلقي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -801,15 +894,15 @@
     {
       "title": "مقال: الذاكرة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505423842909225081/08ca9224-b2a1-4f29-84ad-ff8bd8631543.png?ex=6a0a92b5&is=6a094135&hm=7d847ef03833ca0bb36c31632d6ba2322eccb4f3bc47d6821554f26a84c0be28&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الذاكرة بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الذاكرة مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> ما يبقى من الحلقة بعد انتهائها، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> لا تحفظ الذاكرة كل التفاصيل بل تلتقط المشهد الأقوى والجملة الأوضح، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> لذلك يحتاج المحتوى إلى لحظات مركزة لا إلى تكرار طويل، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الذاكرة:</strong> بعض الحلقات تبقى لأنها منحت المستمع قصة أو فكرة أو عبارة قابلة للعودة، لا لأنها كانت أطول أو أكثر ضجيجًا.",
+        "<strong>زاوية النقاش في الذاكرة:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الذاكرة:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الحلقة الناجحة تترك معنى يمكن استعادته لا مجرد ضجيج عابر.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الذاكرة من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الذاكرة:</strong> الذاكرة هنا نتيجة تراكم: عنوان واضح، صوت مقنع، صورة مناسبة، ولحظة حوارية تستقر بعد انتهاء المشاهدة.",
+        "<strong>خلاصة الذاكرة:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -821,15 +914,15 @@
     {
       "title": "مقال: الجلسة الحوارية",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505424113659809913/e59ab08a-e8c0-4db1-968f-9a1983e42030.png?ex=6a0a92f6&is=6a094176&hm=64d58cdc23374e7a37a6378b016dc8465cebb63897a31514e7d21ed0ea2bd756&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الجلسة الحوارية بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الجلسة الحوارية مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> شكل اللقاء الذي يمنح الضيف مساحة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تقوم الجلسة على الثقة والإيقاع ووضوح المحاور، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> كل كرسي وإضاءة وصمت قصير يشارك في صناعة الشعور العام، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الجلسة الحوارية:</strong> الجلسة الحوارية الناجحة تشبه مجلسًا منظمًا؛ فيها قرب إنساني لكن لا تفقد خطها التحريري.",
+        "<strong>زاوية النقاش في الجلسة الحوارية:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الجلسة الحوارية:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الجلسة الجيدة تجعل المشاهد حاضرًا داخل الحوار لا متفرجًا بعيدًا.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الجلسة الحوارية من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الجلسة الحوارية:</strong> كلما بدا الحوار طبيعيًا ومنضبطًا في الوقت نفسه زادت قدرة الحلقة على الوصول إلى جمهور واسع.",
+        "<strong>خلاصة الجلسة الحوارية:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -841,15 +934,15 @@
     {
       "title": "مقال: النص الكامل",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505422824821493870/70638b4d-6ac0-41ad-a3ab-2f628c421458.png?ex=6a0a91c2&is=6a094042&hm=98d9d011e89cac3cceb7c2b433e329b92eccf05c199c9dcdfcc096909fa9a01a&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال النص الكامل بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "النص الكامل مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> قيمة قراءة الحلقة بعد سماعها، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يساعد النص الكامل الباحث والقارئ على العودة إلى التفاصيل بدقة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> تحويل الصوت إلى نص يحتاج مراجعة تحافظ على المعنى وتصحح الالتباس، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل النص الكامل:</strong> النص الكامل يمنح الحلقة حياة ثانية، ويجعلها قابلة للأرشفة والبحث والاقتباس المنظم.",
+        "<strong>زاوية النقاش في النص الكامل:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة النص الكامل:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> النص الكامل يطيل عمر الحلقة ويجعلها قابلة للاقتباس.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة النص الكامل من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في النص الكامل:</strong> لا يبدل النص الكامل التجربة الصوتية، لكنه يفتح بابًا لمن يريد العودة إلى فكرة محددة من غير مشاهدة الحلقة كاملة.",
+        "<strong>خلاصة النص الكامل:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -861,15 +954,15 @@
     {
       "title": "مقال: الحلقة المرئية",
       "src": "https://cdn.discordapp.com/attachments/1327007975604355153/1505424292375040081/98de1931-ce67-4246-810a-564b17c1564f.png?ex=6a0a9320&is=6a0941a0&hm=cc2bbc4f372d6e5976bfc10ebe0317d38addd2eed467466b8f6ae9016d6a87ef",
-      "lead": "يناقش المقال الحلقة المرئية بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الحلقة المرئية مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> انتقال البودكاست من الصوت إلى الصورة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تضيف الصورة لغة الجسد والمكان والملامح إلى التجربة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> لكن الحضور البصري قد يربك الحلقة إذا غاب الانضباط الإخراجي، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الحلقة المرئية:</strong> الحلقة المرئية تضيف لغة الجسد والمكان وتعبير الوجه، لكنها تفرض مسؤولية أكبر على الصورة.",
+        "<strong>زاوية النقاش في الحلقة المرئية:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الحلقة المرئية:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الحلقة المرئية تنجح عندما تخدم الصورة الحوار ولا تستبدله.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الحلقة المرئية من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الحلقة المرئية:</strong> حين تخدم الكاميرا الحوار يصبح المشاهد حاضرًا داخل الجلسة، وحين تستعرض كثيرًا تفقد المادة هدوءها.",
+        "<strong>خلاصة الحلقة المرئية:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -881,15 +974,15 @@
     {
       "title": "مقال: الصياغة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505424557140348948/0996858f-f94a-4fba-befd-87342b7e60c3.png?ex=6a0a935f&is=6a0941df&hm=3c279237d3fcbb7391e8e5b6ad1b9e38222b0915e8cf0ec2ad304df46d6afcc7&=&format=webp&quality=lossless",
-      "lead": "يناقش المقال الصياغة بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الصياغة مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> اختيار العبارة التي تحمل المعنى بوضوح، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تظهر الصياغة في العنوان والوصف والسؤال والاقتباس، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الكلمة الزائدة قد تضعف الإيقاع كما أن الكلمة الناقصة قد تترك فراغًا، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الصياغة:</strong> الصياغة هي المسافة بين الفكرة الخام والنص الصالح للنشر؛ تضبط المعنى وتزيل الغموض.",
+        "<strong>زاوية النقاش في الصياغة:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الصياغة:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الصياغة القوية تجعل المادة مفهومة من القراءة الأولى.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الصياغة من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الصياغة:</strong> المقال يرى أن الصياغة الناجحة تختار كلمة دقيقة بدل جملة طويلة، وتحافظ على صوت المادة من غير تزويق زائد.",
+        "<strong>خلاصة الصياغة:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -901,15 +994,15 @@
     {
       "title": "مقال: العمق",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505424825060163654/04c57c6c-5c88-4705-9530-6b5150cd9be3.png?ex=6a0a939f&is=6a09421f&hm=f0d7e07b6fcd81172007a2d6742bdf89d3caf96f2871fd9738c357fa2f23054a&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال العمق بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "العمق مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> الانتقال من سطح الموضوع إلى أسبابه، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> لا يتحقق العمق بطول الحلقة فقط بل بترتيب الأسئلة ومتابعة الإجابات، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الضيف العميق يحتاج مقدمًا يعرف متى يتركه يتوسع ومتى يعيده للمسار، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل العمق:</strong> العمق لا يعني الإطالة؛ يعني أن يفتح النص سبب الموضوع وسياقه ونتائجه أمام القارئ.",
+        "<strong>زاوية النقاش في العمق:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة العمق:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> العمق الجيد يضيف معرفة لا تعقيدًا مصطنعًا.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة العمق من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في العمق:</strong> الحلقة العميقة تمنح المستمع ما يجعله يعيد التفكير، لا مجرد معلومات متجاورة بلا رابط.",
+        "<strong>خلاصة العمق:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -921,15 +1014,15 @@
     {
       "title": "مقال: البساطة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505424909042450452/d53ee609-ec5b-4254-b4d7-ddd7f6848e0b.png?ex=6a0a93b3&is=6a094233&hm=bab396d69ac27d6cecd7a1e31383da969a638d1e4c0df353eae31100452f8d27&=&format=webp&quality=lossless",
-      "lead": "يناقش المقال البساطة بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "البساطة مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> تقديم الفكرة الصعبة بلغة مفهومة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تجعل البساطة المادة أقرب إلى القارئ دون التنازل عن دقتها، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> المحتوى المتخصص يفشل عندما يتحدث لنفسه فقط، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل البساطة:</strong> البساطة تجعل المادة قابلة للوصول من دون أن تفقد قيمتها، وتمنع المصطلحات من حجب الفكرة.",
+        "<strong>زاوية النقاش في البساطة:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة البساطة:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> البساطة الحقيقية تحتاج معرفة كافية لا اختصارًا كسولًا.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة البساطة من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في البساطة:</strong> النص البسيط يشرح المعقد بوضوح، ويترك للقارئ شعورًا بأن الموضوع صار أقرب لا أقل أهمية.",
+        "<strong>خلاصة البساطة:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -941,15 +1034,15 @@
     {
       "title": "مقال: الإيقاع",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505425051158184057/4cef0017-b762-460c-9f18-ccc8245230ab.png?ex=6a0a93d5&is=6a094255&hm=c8eb1c300aec07a9c3069f8573b1beba4246c998044a75fdd8937dacee315e0c&=&format=webp&quality=lossless",
-      "lead": "يناقش المقال الإيقاع بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الإيقاع مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> حركة النص والحوار بين السرعة والهدوء، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يحافظ الإيقاع على انتباه المتلقي ويمنع الملل في المواد الطويلة، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> يتأثر الإيقاع بالأسئلة والانتقالات والمقاطع الصامتة وطول الإجابة، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الإيقاع:</strong> الإيقاع يحدد متى يهدأ الحوار ومتى يتقدم، ويمنع الحلقة من أن تبدو مسطحة أو متقطعة.",
+        "<strong>زاوية النقاش في الإيقاع:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الإيقاع:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الإيقاع المتزن يجعل الحلقة طويلة لكنها غير مرهقة.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الإيقاع من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الإيقاع:</strong> المقال يربط الإيقاع بالمونتاج وطول السؤال ونبرة المقدم، لا بالموسيقى وحدها.",
+        "<strong>خلاصة الإيقاع:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -961,15 +1054,15 @@
     {
       "title": "مقال: الفخامة الهادئة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505425411931246602/f743e9a0-ff9f-4ff4-9aa3-6da65dbecd82.png?ex=6a0a942b&is=6a0942ab&hm=693f51f1924218f2331b831d2b40df31f6db906d7d4e9a893ce0458097fd2cf8&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الفخامة الهادئة بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الفخامة الهادئة مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> الجمال الذي لا يصرخ في التصميم والصوت، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تظهر الفخامة الهادئة في اللون والمساحة والاختيار القليل الدقيق، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> المبالغة البصرية قد تجعل الموقع يبدو مزدحمًا بدل أن يكون راقيًا، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الفخامة الهادئة:</strong> الفخامة الهادئة تظهر حين يكون التصميم ناضجًا من غير مبالغة، ويترك للمحتوى المكان الأول.",
+        "<strong>زاوية النقاش في الفخامة الهادئة:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الفخامة الهادئة:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الفخامة هنا تعني الوضوح والثقة لا كثرة الزخرفة.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الفخامة الهادئة من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الفخامة الهادئة:</strong> كلما قلّ الزحام البصري ووضحت الهوية، بدا الموقع أو الحلقة أكثر ثقة وأكثر قربًا من الجمهور.",
+        "<strong>خلاصة الفخامة الهادئة:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -981,15 +1074,15 @@
     {
       "title": "مقال: الرياض في البودكاست",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505425173401174136/55ce4682-c2c5-405f-b207-e393f0334730.png?ex=6a0a93f2&is=6a094272&hm=abfe4f22647fbb1380c443016ecf196823cea4a2166ac1205a11515f75846fc7&=&format=webp&quality=lossless&width=1032&height=576",
-      "lead": "يناقش المقال الرياض في البودكاست بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الرياض في البودكاست مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> حضور المدينة بوصفها مسرحًا للحكاية، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تظهر الرياض في الحوارات من خلال التحول والعمل والذاكرة والمكان، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> ليست المدينة خلفية فقط بل مصدر قصص عن الناس والإيقاع والفرص، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الرياض في البودكاست:</strong> الرياض ليست خلفية جغرافية فقط؛ تظهر في قصص العمل والتحول واللقاءات التي تصنع ذاكرة المدينة.",
+        "<strong>زاوية النقاش في الرياض في البودكاست:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الرياض في البودكاست:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> كلما حضرت الرياض بصدق صار السرد أكثر قربًا من الحياة اليومية.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الرياض في البودكاست من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الرياض في البودكاست:</strong> المقال يقرأ المدينة عبر أصواتها: رواد أعمال، إعلاميون، موظفون، فنانين، وشباب يشرحون تغير الحياة اليومية.",
+        "<strong>خلاصة الرياض في البودكاست:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -1001,15 +1094,15 @@
     {
       "title": "مقال: العلا في السرد السعودي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505425655351742584/846b9531-494a-4386-bb72-051dde1fc4b1.png?ex=6a0a9465&is=6a0942e5&hm=35d73980c7c2679bdcbf40e5137ed9c3749959c87718bc67cf04629c697a48b7&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال العلا في السرد السعودي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "العلا في السرد السعودي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> المكان التاريخي عندما يتحول إلى قصة معاصرة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تمنح العلا السرد السعودي طبقات من التراث والطبيعة والهوية البصرية، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> التعامل معها يحتاج لغة تحترم الذاكرة ولا تكتفي بالصورة الجميلة، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل العلا في السرد السعودي:</strong> العلا تمنح السرد السعودي مكانًا بصريًا وتاريخيًا غنيًا، وتدفع الحوار إلى مساحة تتجاوز الوصف السياحي.",
+        "<strong>زاوية النقاش في العلا في السرد السعودي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة العلا في السرد السعودي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> تنجح الحكاية عندما تجمع المكان بالإنسان لا بالمشهد وحده.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة العلا في السرد السعودي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في العلا في السرد السعودي:</strong> حين تظهر العلا في بودكاست جيد تتحول من صورة جميلة إلى مدخل للذاكرة والهوية والتنمية الثقافية.",
+        "<strong>خلاصة العلا في السرد السعودي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -1021,15 +1114,15 @@
     {
       "title": "مقال: الصوت النسائي السعودي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505425990430756914/9684e1b6-fb13-4e47-9fa8-449c7daa643d.png?ex=6a0a94b5&is=6a094335&hm=de72ecec952b17f9e94bfa08789af382dfc5e75b1f6eba5cd18b1f7174cfa1f7&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الصوت النسائي السعودي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الصوت النسائي السعودي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> التجربة النسائية كما تظهر في الحوارات الطويلة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> يحمل الصوت النسائي أسئلة عن العمل والبيت والطموح والتمثيل الإعلامي، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> قيمة هذا الصوت في خصوصيته لا في فصله عن المشهد العام، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الصوت النسائي السعودي:</strong> الصوت النسائي السعودي يضيف خبرات مهنية واجتماعية وشخصية تحتاج مساحة حوارية هادئة وعادلة.",
+        "<strong>زاوية النقاش في الصوت النسائي السعودي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الصوت النسائي السعودي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> كل مساحة عادلة للصوت النسائي توسع معنى البودكاست السعودي.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الصوت النسائي السعودي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الصوت النسائي السعودي:</strong> قوة هذا الصوت تظهر عندما يقدم تجربته من داخله، لا عندما يحصره العنوان في زاوية واحدة.",
+        "<strong>خلاصة الصوت النسائي السعودي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -1041,15 +1134,15 @@
     {
       "title": "مقال: لماذا تطول بعض الحلقات؟",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505426191744634980/db6542d9-d8ab-4e82-8406-97335a1ff344.png?ex=6a0a94e5&is=6a094365&hm=c2d7500d2d216c630606124651cb25525a93aeab6bd847407892a1c27f828f33&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال لماذا تطول بعض الحلقات؟ بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "لماذا تطول بعض الحلقات؟ مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> سبب امتداد الحلقات في الحوار السعودي، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تطول الحلقة عندما يحتاج الموضوع إلى خلفية وسياق وتجربة شخصية، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> الإطالة تصبح مشكلة إذا غابت المحاور أو تكررت الفكرة نفسها، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل لماذا تطول بعض الحلقات؟:</strong> طول الحلقة يصبح مبررًا عندما تتعدد المحاور وتحتاج التجربة إلى بناء تدريجي لا يختصرها مقطع قصير.",
+        "<strong>زاوية النقاش في لماذا تطول بعض الحلقات؟:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة لماذا تطول بعض الحلقات؟:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الطول مقبول عندما يمنح المستمع معرفة إضافية في كل انتقال.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة لماذا تطول بعض الحلقات؟ من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في لماذا تطول بعض الحلقات؟:</strong> المقال يفرق بين حلقة طويلة لأنها عميقة، وحلقة طويلة لأنها لم تُحرر كما ينبغي.",
+        "<strong>خلاصة لماذا تطول بعض الحلقات؟:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -1061,15 +1154,15 @@
     {
       "title": "مقال: الصورة حين تخدم المعنى",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505426472205287544/8ff32d30-8b58-4af7-a76d-f8af064003f0.png?ex=6a0a9528&is=6a0943a8&hm=69f06d343598ed18b463007e7ad62f8ca379f7b9a5eb1a96f3d7989df87e5e06&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال الصورة حين تخدم المعنى بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "الصورة حين تخدم المعنى مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> دور الصورة في توجيه القراءة دون فرضها، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> الصورة المناسبة تختصر النبرة وتفتح باب التوقع الصحيح، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> لا تحتاج كل مادة إلى صورة صاخبة كي تبدو مهمة، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل الصورة حين تخدم المعنى:</strong> الصورة تخدم المعنى عندما توجه العين إلى الفكرة وتنسجم مع نبرة العنوان والمحتوى.",
+        "<strong>زاوية النقاش في الصورة حين تخدم المعنى:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة الصورة حين تخدم المعنى:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> تخدم الصورة المعنى عندما تجعل العنوان أوضح لا أكثر غموضًا.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة الصورة حين تخدم المعنى من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في الصورة حين تخدم المعنى:</strong> الصورة غير المناسبة قد تصنع وعدًا مختلفًا عن النص، لذلك يتحول الاختيار البصري إلى قرار تحريري.",
+        "<strong>خلاصة الصورة حين تخدم المعنى:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -1081,15 +1174,15 @@
     {
       "title": "مقال: من الحلقة إلى الأثر",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505427023894548641/ff3dfc8c-5faf-4dd8-8687-d5884f4a5377.png?ex=6a0a95ab&is=6a09442b&hm=ee01526adc2bdcb3e8f54302aad82c6f0f2cf79ef97f3ef1f116188518e8e88d&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال من الحلقة إلى الأثر بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "من الحلقة إلى الأثر مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> ما يحدث بعد نشر الحلقة، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> الأثر يظهر في النقاشات والاقتباسات وتغير طريقة فهم الموضوع، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> ليست كل مشاهدة أثرًا حقيقيًا إذا لم ينتقل المعنى إلى الجمهور، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل من الحلقة إلى الأثر:</strong> الأثر يبدأ عندما تخرج الفكرة من وقت المشاهدة إلى نقاش أو قرار أو قراءة إضافية.",
+        "<strong>زاوية النقاش في من الحلقة إلى الأثر:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة من الحلقة إلى الأثر:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> الحلقة المؤثرة تمنح المستمع سؤالًا جديدًا أو قرارًا أو زاوية نظر.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة من الحلقة إلى الأثر من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في من الحلقة إلى الأثر:</strong> المقال يتابع الرحلة بعد النشر: كيف تُقتبس الحلقة، كيف تُفهم، وكيف تتحول إلى مرجع صغير داخل مجالها.",
+        "<strong>خلاصة من الحلقة إلى الأثر:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -1101,15 +1194,15 @@
     {
       "title": "مقال: لغة المقدم السعودي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505426324720980018/4ec23616-0dfc-47da-8cda-9e1985490971.png?ex=6a0a9505&is=6a094385&hm=2bee64dd1d63448d809b218fd2e444fd2c1b309a5bee447d6f0dd379204edf2d&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يناقش المقال لغة المقدم السعودي بوصفه قضية تحريرية تؤثر في قراءة البودكاست السعودي وفهم حضوره عند الجمهور.",
+      "lead": "لغة المقدم السعودي مقال يفتح زاوية رأي واضحة حول صناعة البودكاست السعودي، ويضع الفكرة في مسارها التحريري من غير مبالغة.",
       "body": [
-        "<strong>فكرة مباشرة:</strong> نبرة المقدم بين المحلية والاحتراف، ولذلك لا يكفي ذكر العنوان وحده من غير شرح يضعه في موضعه الصحيح.",
-        "<strong>ما وراء العنوان:</strong> تحافظ اللغة السعودية على القرب عندما لا تتحول إلى استعراض، ويظهر هذا الأثر في طريقة صياغة السؤال، وترتيب الفقرة، واختيار الصورة المصاحبة.",
-        "<strong>الخلفية:</strong> المقدم الناجح يوازن بين العفوية واحترام الضيف ودقة السؤال، لأن المادة الصوتية تتحول إلى تجربة أوضح عندما يلتقي النص مع الصوت في مسار واحد."
+        "<strong>مدخل لغة المقدم السعودي:</strong> لغة المقدم السعودي تمزج القرب المحلي بالانضباط المهني، وتحدد علاقة الجمهور بالحوار من بدايته.",
+        "<strong>زاوية النقاش في لغة المقدم السعودي:</strong> يتعامل المقال مع العنوان بوصفه قضية لها أثر على اختيار الضيف، وترتيب السؤال، وطريقة تقديم الحلقة للجمهور.",
+        "<strong>دلالة لغة المقدم السعودي:</strong> تظهر أهمية الفكرة عندما ينتقل المحتوى من مجرد مادة منشورة إلى تجربة مفهومة تحفظ المعنى وتمنح القارئ سببًا للمتابعة."
       ],
       "more": [
-        "<strong>رأي المقال:</strong> هذه اللغة جزء من هوية البرنامج بقدر ما هي أداة للتواصل.",
-        "<strong>مساحة القارئ:</strong> يستطيع القارئ أن يقيس جودة لغة المقدم السعودي من خلال وضوح الفكرة الأولى، وارتباط التفاصيل بها، وقدرة النص على دفعه لتكوين موقفه الخاص."
+        "<strong>قراءة أوسع في لغة المقدم السعودي:</strong> المقال يرى أن قوة المقدم ليست في كثرة الكلام، بل في قدرته على فتح الطريق أمام الضيف ثم إعادة الفكرة إلى مسارها.",
+        "<strong>خلاصة لغة المقدم السعودي:</strong> يدفع المقال القارئ إلى النظر في التفاصيل الصغيرة التي تصنع جودة المادة، ثم تكوين رأيه حول ما يجعل الحلقة أو النص أكثر رسوخًا."
       ],
       "tags": [
         "مقال",
@@ -1123,260 +1216,260 @@
     {
       "title": "تقرير: سلوك الاستماع السعودي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437058959802429/a43d3a8c-166a-4172-a4b0-6da3e13cbaee.png?ex=6a0a9f04&is=6a094d84&hm=b42210f418efaf8b1f79826f8539e85ed8b39d54fc846b6ba24c2340cd5fd4cc&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير سلوك الاستماع السعودي من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "سلوك الاستماع السعودي تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> يتغير الاستماع بين السيارة والمنزل والعمل، وتختلف معه مدة الحلقة وطريقة اختيارها، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> توضح الملاحظة أن الجمهور يبحث عن محتوى يرافق يومه لا يقطعه، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> يتغير سلوك الاستماع بين السيارة والمنزل والعمل، وتكشف هذه التحولات أن البودكاست صار جزءًا من اليوم لا نشاطًا معزولًا.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر سلوك الاستماع السعودي في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> النتيجة أن صانع البودكاست يحتاج فهم وقت المستمع قبل صياغة الحلقة.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> النتيجة الأوضح أن الجمهور يفضل المحتوى الذي يحترم وقته ويقدم موضوعًا واضحًا من اللحظة الأولى.",
+        "<strong>ما يتركه التقرير:</strong> يفتح سلوك الاستماع السعودي سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: الحلقة الطويلة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437076152127583/cc236d93-4ef9-4de7-97db-0c567b247782.png?ex=6a0a9f08&is=6a094d88&hm=46df3a00c41d692a4cf52a6aa13958e83dad7a9714df045c833baadaf6cfe1eb&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير الحلقة الطويلة من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "الحلقة الطويلة تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> تمتد الحلقات الطويلة عندما يجتمع التاريخ الشخصي مع التحليل والسؤال المفتوح، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> المؤشر الأهم ليس عدد الدقائق بل قدرة كل محور على إضافة معنى جديد، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> الحلقة الطويلة تنجح عندما يكون طولها مرتبطًا بتدرج القصة وتعدد المحاور، لا بترك الحوار بلا تحرير.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر الحلقة الطويلة في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> القيمة تظهر عندما يشعر المستمع أن الوقت الطويل كان مبررًا.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> المؤشر المهم هو بقاء المستمع حتى منتصف الحلقة وما بعده، لأن ذلك يكشف أن الزمن يخدم الفكرة.",
+        "<strong>ما يتركه التقرير:</strong> يفتح الحلقة الطويلة سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: البودكاست النسائي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437099904602203/81ec6f09-ead4-45bf-85ba-17cf89710745.png?ex=6a0a9f0e&is=6a094d8e&hm=153ec6dd24f7559d6f7ddefe6e6ca5a9c48c7ae8ca9ab703fa624a391b1d32b2&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير البودكاست النسائي من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "البودكاست النسائي تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> يتوسع حضور النساء في برامج الحوار والسرد والتجارب المهنية، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> تكشف الحلقات عن موضوعات لا تظهر بوضوح في المواد القصيرة، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> التجارب النسائية في البودكاست السعودي توسع موضوعات النقاش وتدفع المنصات إلى تنويع الضيوف والزوايا.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر البودكاست النسائي في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> النتيجة أن التنوع الصوتي أصبح عنصرًا أساسيًا في نمو المشهد.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> النتيجة أن الحضور النسائي لم يعد إضافة شكلية، بل مسارًا يفتح موضوعات عمل وثقافة وأسرة وإبداع.",
+        "<strong>ما يتركه التقرير:</strong> يفتح البودكاست النسائي سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: الهوية البصرية",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437137565384805/56c2e39f-ac05-4dfd-adab-147af2c8ec11.png?ex=6a0a9f17&is=6a094d97&hm=30f44a8d7c30c04fb2ea2ef19d15139ca02e18a71f4ea0db067e42116e6c1afe&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير الهوية البصرية من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "الهوية البصرية تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> تعتمد البرامج على ألوان وشعارات وصور ضيوف تميزها داخل المنصات، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> يتحول الغلاف إلى أداة تعرّف سريعة عندما يتكرر بشكل منظم، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> الهوية البصرية تجعل البرنامج معروفًا قبل تشغيله، من الغلاف إلى مصغّر الفيديو وطريقة عرض العنوان.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر الهوية البصرية في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> كلما وضحت الهوية البصرية أصبح البرنامج أسهل في التذكر والبحث.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> التقرير يخلص إلى أن الصورة الضعيفة تقلل من فرصة الاكتشاف حتى لو كان المحتوى قويًا.",
+        "<strong>ما يتركه التقرير:</strong> يفتح الهوية البصرية سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: الاستماع في السيارة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437260928254185/f5834b8f-e07f-41c6-ac2f-fab42f4aa569.png?ex=6a0a9f34&is=6a094db4&hm=248f05999aaa56efc4ec984dfe0ad90dc2871a63d1fc72b9da1ea1263ff362fe&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير الاستماع في السيارة من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "الاستماع في السيارة تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> السيارة مساحة استماع طبيعية في المدن السعودية بسبب التنقل اليومي، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> يناسبها المحتوى ذو الفقرات الواضحة والصوت المستقر والانتقالات القليلة، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> السيارة أصبحت مساحة يومية للحلقات الطويلة، لأن الطريق يمنح المستمع وقتًا متصلًا بعيدًا عن ازدحام الشاشة.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر الاستماع في السيارة في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> النتيجة أن الحلقة الجيدة للسيارة تراعي التركيز المتقطع للمستمع.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> المحتوى المناسب لهذا السياق يحتاج صوتًا واضحًا ومحاور مرتبة حتى لا يضيع المعنى مع ضجيج الطريق.",
+        "<strong>ما يتركه التقرير:</strong> يفتح الاستماع في السيارة سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: الاستماع في المنزل",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437282860273694/669113ea-fbe9-4b21-9861-5488fc46f81c.png?ex=6a0a9f39&is=6a094db9&hm=acdc27449535e0f32bcf82546572cca3e32e67e7c332e3dfb274e8b5aed624be&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير الاستماع في المنزل من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "الاستماع في المنزل تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> المنزل يمنح المستمع وقتًا أهدأ للحلقات الطويلة والموضوعات العميقة، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> يزداد حضور البودكاست أثناء الأعمال اليومية أو الجلسات الفردية، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> المنزل يغيّر طريقة التلقي؛ المستمع قد يتوقف ويعود ويشارك الحلقة مع فرد آخر من الأسرة.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر الاستماع في المنزل في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> هذا النوع من الاستماع يرفع قيمة الحلقات التي تبني سياقها ببطء.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> هذا السياق يرفع قيمة الحلقات التي تشرح بهدوء وتحتمل العودة، لا التي تعتمد على سرعة اللقطة فقط.",
+        "<strong>ما يتركه التقرير:</strong> يفتح الاستماع في المنزل سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: الاستماع في العمل",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437309477060760/88cc8cd0-6b2b-4506-a087-3d1ca43acd59.png?ex=6a0a9f40&is=6a094dc0&hm=cda4e26437346e02d59f21996deb585992eaaa704a79de43b95e0a5f154216de&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير الاستماع في العمل من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "الاستماع في العمل تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> الاستماع أثناء العمل يحتاج محتوى لا يطلب متابعة بصرية دائمة، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> تنجح الحلقات المهنية والقصصية عندما تقدم محاور واضحة وسهلة العودة، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> الاستماع أثناء العمل يرتبط بالمهام المتكررة والأوقات الهادئة، لذلك ينجح المحتوى الواضح غير المشتت.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر الاستماع في العمل في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> النتيجة أن وضوح التقسيم يساعد المستمع الذي ينشغل ثم يعود.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> التقرير يلاحظ أن الموضوع العملي أو الريادي يجد مكانه هنا لأنه يمنح المستمع فكرة قابلة للتطبيق.",
+        "<strong>ما يتركه التقرير:</strong> يفتح الاستماع في العمل سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: خريطة المنصات",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437918523560036/88cc8cd0-6b2b-4506-a087-3d1ca43acd59.png?ex=6a0a9fd1&is=6a094e51&hm=0e65988c4452b093f5365312b1c60034d2a597d188dc191ea3baa0996312b79c&=&format=webp&quality=lossless&width=928&height=507",
-      "lead": "يرصد التقرير خريطة المنصات من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "خريطة المنصات تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> يتوزع البودكاست بين يوتيوب وسبوتيفاي وآبل بودكاست ومنصات التواصل، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> كل منصة تفرض أسلوب عرض مختلفًا في الصورة والوصف والمقطع القصير، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> توزع الحلقات بين يوتيوب وسبوتيفاي وأبل بودكاست يصنع رحلة مختلفة لكل جمهور.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر خريطة المنصات في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> البرنامج القوي لا ينسخ نفسه في كل منصة بل يكيّف حضوره معها.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> كل منصة تفرض طريقة تقديم: الصورة في يوتيوب، سهولة الاستئناف في التطبيقات الصوتية، والبحث في المنصات المفتوحة.",
+        "<strong>ما يتركه التقرير:</strong> يفتح خريطة المنصات سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: التوزيع الرقمي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505437918225760266/84cbbe05-8ebb-40b2-b0fb-766f6fc0014b.png?ex=6a0a9fd1&is=6a094e51&hm=b25cf41c96b60d460e3c49619f46fa6297066461103aa8a6436d3d68b32684dc&=&format=webp&quality=lossless&width=928&height=507",
-      "lead": "يرصد التقرير التوزيع الرقمي من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "التوزيع الرقمي تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> التوزيع يحول الحلقة من ملف منشور إلى شبكة وصول كاملة، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> تؤثر العناوين والكلمات المفتاحية ومواعيد النشر في انتشار المادة، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> التوزيع الرقمي لا يقتصر على رفع الحلقة؛ يبدأ من العنوان والوصف والمقطع القصير ووقت النشر.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر التوزيع الرقمي في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> النتيجة أن نجاح الحلقة يبدأ بعد الإنتاج ولا يتوقف عند التسجيل.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> النتيجة أن الحلقة القوية تحتاج خطة ظهور حتى لا تبقى محصورة داخل جمهور البرنامج الدائم.",
+        "<strong>ما يتركه التقرير:</strong> يفتح التوزيع الرقمي سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: الإخراج الفني",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505438519370186823/d1e435a2-32e2-4fa8-88c1-2feb2c7c6f6b.png?ex=6a0aa060&is=6a094ee0&hm=0b0eeec9078bdbe98beb61f56abdf08d3b2b660c3cdd9524192046b5bb2211e5&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير الإخراج الفني من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "الإخراج الفني تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> الإخراج ينظم الصوت والصورة والإضاءة وحركة الكاميرا داخل الحلقة، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> تتضح جودة الإخراج عندما ينسى المشاهد التقنية ويركز في الحوار، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> الإخراج الفني يضبط العلاقة بين الصوت والصورة والإضاءة والإيقاع، ويمنح الحلقة مظهرًا مهنيًا دون مبالغة.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر الإخراج الفني في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> النتيجة أن الحرفية الهادئة ترفع قيمة البرنامج دون أن تطغى عليه.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> كل قرار فني ناجح يقلل تشتيت المشاهد ويترك التركيز على الفكرة والضيف.",
+        "<strong>ما يتركه التقرير:</strong> يفتح الإخراج الفني سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: إدارة الحوار",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505438527096098856/690f5651-2a36-41c4-8025-b22225a5d50b.png?ex=6a0aa062&is=6a094ee2&hm=a0ed774115ea7091251123f7b41e57f58a77b4841687c01e9405391485e71547&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير إدارة الحوار من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "إدارة الحوار تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> إدارة الحوار تضبط العلاقة بين السؤال والجواب والانتقال إلى محور جديد، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> تظهر مهارة المقدم عند متابعة إجابة الضيف لا الاكتفاء بقائمة أسئلة جاهزة، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> إدارة الحوار تظهر في توزيع الوقت، ترتيب الأسئلة، والعودة إلى النقطة التي تستحق توضيحًا.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر إدارة الحوار في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> الحوار المنظم ينتج مادة قابلة للفهم والاقتباس والمشاركة.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> التقرير ينتهي إلى أن المقدم الجيد لا يسيطر على الحوار، بل يمنحه طريقًا واضحًا.",
+        "<strong>ما يتركه التقرير:</strong> يفتح إدارة الحوار سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: المؤثرات الصوتية",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505439315797475428/4373e2f4-edc5-491a-9216-622c0227fb11.png?ex=6a0aa11e&is=6a094f9e&hm=0793a806c06c795c162c4a0d59694028901f35136278a174f97d5f60c602d01a&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير المؤثرات الصوتية من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "المؤثرات الصوتية تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> المؤثرات تضيف طبقة شعورية لكنها قد تضعف الحلقة إذا حضرت بلا سبب، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> الاستخدام الدقيق يوضح الانتقال أو يهيئ المستمع للحكاية، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> المؤثرات الصوتية تضيف انتقالًا أو إحساسًا إذا استخدمت بحذر، لكنها تضعف الحلقة عندما تصبح بديلًا عن المعنى.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر المؤثرات الصوتية في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> النتيجة أن المؤثر الجيد يعمل في الخلفية ولا يصبح موضوعًا مستقلًا.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> الحد الفاصل هو أن تخدم المؤثرات القصة ولا تفرض نفسها على أذن المستمع.",
+        "<strong>ما يتركه التقرير:</strong> يفتح المؤثرات الصوتية سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     },
     {
       "title": "تقرير: نبرة المقدم",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505439916081811466/a533404e-ee09-45d5-9311-32ee85dc7655.png?ex=6a0aa1ad&is=6a09502d&hm=8bf541b8baf170cbbdd85e2da2962a4216a7f7a87645ba32546fd27acba8e95c&=&format=webp&quality=lossless",
-      "lead": "يرصد التقرير نبرة المقدم من زاوية عملية تربط بين ما يظهر للجمهور وما يحدث داخل صناعة البودكاست السعودي.",
+      "lead": "نبرة المقدم تقرير يتابع مسار الظاهرة ويعرض ما وراءها من تحولات في الاستماع والإنتاج والتوزيع داخل المشهد السعودي.",
       "body": [
-        "<strong>زاوية المشهد:</strong> النبرة تحدد علاقة المستمع بالمقدم قبل مضمون السؤال، وهذا يجعل الموضوع مرتبطًا بسلوك الجمهور وبطريقة إنتاج الحلقة في الوقت نفسه.",
-        "<strong>المؤشرات:</strong> النبرة الهادئة تمنح الثقة بينما النبرة الحادة قد تدفع الضيف إلى الدفاع، مع ملاحظة أثر العنوان والصورة والمنصة في تحديد مسار الوصول إلى المستمع.",
-        "<strong>مسار الموضوع:</strong> يبدأ الأثر من قرار الإنتاج، ثم ينتقل إلى النشر، ثم يظهر في التفاعل والمشاهدة والعودة إلى الحلقة بعد نشرها."
+        "<strong>مدخل المشهد:</strong> نبرة المقدم تحدد أمان الحوار: حادة فتدفع الضيف للدفاع، هادئة فتفتح إجابة أعمق.",
+        "<strong>المسار والوقائع:</strong> يتتبع التقرير كيف يظهر نبرة المقدم في تفاصيل النشر والاستهلاك، وما العوامل التي تجعله يتقدم أو يتراجع بين البرامج.",
+        "<strong>الشواهد التحريرية:</strong> تتضح الصورة من مقارنة العنوان، مدة الحلقة، طريقة عرضها، وسلوك الجمهور معها بعد النشر، لأن هذه العناصر تكشف أثر الظاهرة لا شكلها فقط."
       ],
       "more": [
-        "<strong>قراءة النتائج:</strong> المقدم الناجح يجعل صوته طريقًا للمعنى لا حاجزًا بين الضيف والجمهور.",
-        "<strong>ما يبقى بعد التقرير:</strong> يترك الموضوع سؤالًا مفتوحًا حول الطريقة التي يمكن بها تحسين التجربة من غير أن تفقد الحلقة شخصيتها أو جمهورها الأساسي."
+        "<strong>قراءة النتائج:</strong> التقرير يرى أن النبرة ليست تفصيلًا صوتيًا، بل أداة تحريرية تتحكم في مسار الحلقة.",
+        "<strong>ما يتركه التقرير:</strong> يفتح نبرة المقدم سؤالًا قابلًا للمتابعة حول جودة التجربة، ومدى قدرة البرامج السعودية على تطوير أدواتها من حلقة إلى أخرى."
       ],
       "tags": [
         "تقرير",
-        "رصد",
-        "تحليل"
+        "تحليل",
+        "بودكاست"
       ],
       "sources": []
     }
@@ -1385,19 +1478,19 @@
     {
       "title": "تحقيق: الحلقة الطويلة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505433561765777438/c56c2603-7f6e-4946-81e2-ae08b026ca26.png?ex=6a0a9bc2&is=6a094a42&hm=539505838232be9a7e1164cc15d1d24e918f26fcb626117152b66eeff6126c3c&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يفتح التحقيق ملف الحلقة الطويلة من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "الحلقة الطويلة تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> لماذا تقبل بعض الحلقات الساعات الطويلة بينما تفقد أخرى جمهورها مبكرًا، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> يتضح أن طول الحلقة يحتاج بنية محاور لا مجرد تدفق حر للكلام، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع الحلقة الطويلة مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال الحلقة الطويلة:</strong> السؤال الأساسي: متى يكون الطول قيمة ومتى يتحول إلى عبء؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> أقوى الحلقات الطويلة هي التي تفتح سؤالًا ثم تعود إليه بإجابة أوضح.",
-        "<strong>قراءة المحرر:</strong> معالجة الحلقة الطويلة تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> التحقيق يربط الإجابة بوجود محاور واضحة ووقائع جديدة في كل جزء من الحلقة.",
+        "<strong>خلاصة الحلقة الطويلة:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1405,19 +1498,19 @@
     {
       "title": "تحقيق: فخامة الشكل",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505433765327933521/9d6cfba8-9fff-41e8-9976-fd57ccb8d9e5.png?ex=6a0a9bf3&is=6a094a73&hm=75464220c48f56aff3368e06b7fe09204fdf91e15c9f3cdcf3b4cd3cdd7fb1d2&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يفتح التحقيق ملف فخامة الشكل من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "فخامة الشكل تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> هل تخدم الفخامة البصرية المحتوى أم تتحول إلى ستار يخفي ضعف الفكرة، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> تظهر الفخامة في الاتساق والهدوء قبل أن تظهر في الألوان والخلفيات، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع فخامة الشكل مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال فخامة الشكل:</strong> السؤال هنا: هل يخدم الشكل الفاخر المحتوى أم يخفي ضعفه؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> الشكل المقنع هو الذي يجعل القارئ يثق بالمادة دون أن ينشغل عن مضمونها.",
-        "<strong>قراءة المحرر:</strong> معالجة فخامة الشكل تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> النتيجة أن الفخامة تصبح مؤثرة عندما تضبط الثقة البصرية ولا تعطل القراءة أو المشاهدة.",
+        "<strong>خلاصة فخامة الشكل:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1425,19 +1518,19 @@
     {
       "title": "تحقيق: العودة إلى الحلقات الكاملة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505433795971645480/48040ce9-8722-4002-9f3c-7de782c50d93.png?ex=6a0a9bfa&is=6a094a7a&hm=ce1441475cccc177cd074d5234c635d4333e60a01774d205c21ee5da741a8772&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف العودة إلى الحلقات الكاملة من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "العودة إلى الحلقات الكاملة تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> لماذا يعود بعض الجمهور إلى الحلقة كاملة بعد مشاهدة مقطع قصير، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> المقطع يلفت الانتباه لكنه لا يشرح الخلفية ولا يحفظ تسلسل الفكرة، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع العودة إلى الحلقات الكاملة مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال العودة إلى الحلقات الكاملة:</strong> لماذا يعود بعض الجمهور إلى الحلقة كاملة بعد مشاهدة مقطع قصير؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> قيمة الحلقة الكاملة تظهر عندما يحتاج المستمع إلى السياق لا إلى الجملة المتداولة فقط.",
-        "<strong>قراءة المحرر:</strong> معالجة العودة إلى الحلقات الكاملة تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> الإجابة تظهر عندما يكون المقطع بوابة لفكرة أوسع لا مجرد لقطة منفصلة.",
+        "<strong>خلاصة العودة إلى الحلقات الكاملة:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1445,19 +1538,19 @@
     {
       "title": "تحقيق: البودكاست النسائي",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434076960784425/5101b3f3-f39e-4078-afe6-7efa5e0cc508.png?ex=6a0a9c3d&is=6a094abd&hm=c732608aec3d3fb237c2319902cc5298908982ae2f8b9ffe0eb500e762289565&=&format=webp&quality=lossless&width=1032&height=563",
-      "lead": "يفتح التحقيق ملف البودكاست النسائي من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "البودكاست النسائي تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> ما الذي يعيق حضور الأصوات النسائية وما الذي يمنحها مساحة أوسع، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> تتداخل الجرأة التحريرية مع اختيار الضيفات وطبيعة الموضوعات المطروحة، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع البودكاست النسائي مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال البودكاست النسائي:</strong> ما الذي يضيفه الحضور النسائي إلى خريطة البودكاست السعودي؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> الحضور النسائي يتقدم عندما يعامل بوصفه جزءًا من المشهد لا فقرة موسمية.",
-        "<strong>قراءة المحرر:</strong> معالجة البودكاست النسائي تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> الخلاصة أن تنوع التجارب يوسّع الأسئلة ويغير طريقة تناول الموضوعات الاجتماعية والمهنية.",
+        "<strong>خلاصة البودكاست النسائي:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1465,19 +1558,19 @@
     {
       "title": "تحقيق : الثقة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434109009330217/02d448df-c8f7-4a82-a216-de17d37a3bad.png?ex=6a0a9c45&is=6a094ac5&hm=e081c644725aaac654a1a4477c0b5017def97dd8f500f919cd6012b3262f9a1e&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف الثقة من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "الثقة تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> كيف يقرر المستمع أن برنامجًا ما يستحق وقته وثقته، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> تنشأ الثقة من وضوح المصادر ودقة العنوان واحترام الضيف والجمهور، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع الثقة مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال الثقة:</strong> كيف تُبنى الثقة بين البرنامج والجمهور؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> أي مبالغة في الوعد أو اقتطاع مضلل تضعف هذه العلاقة سريعًا.",
-        "<strong>قراءة المحرر:</strong> معالجة الثقة تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> تتكون الثقة من صدق العنوان، وضوح المصدر، ثبات الهوية، وعدم المبالغة في الوعود.",
+        "<strong>خلاصة الثقة:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1485,19 +1578,19 @@
     {
       "title": "تحقيق: السياق",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434125857853481/f0c926d0-9d6e-403c-ac45-506272848582.png?ex=6a0a9c49&is=6a094ac9&hm=75fd0e1ddb62299826b3aa7e97d64e74aa0c364ef9a066bfe3d3766b17f8c255&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف السياق من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "السياق تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> لماذا تفشل بعض المقاطع عندما تنتزع من سياق الحلقة، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> السياق يمنح الجملة معناها ويشرح سبب السؤال وطبيعة اللحظة، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع السياق مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال السياق:</strong> متى يصبح العنوان ناقصًا بلا سياق؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> غياب السياق يجعل الجمهور يحاكم جزءًا صغيرًا كأنه القصة كاملة.",
-        "<strong>قراءة المحرر:</strong> معالجة السياق تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> التحقيق يوضح أن السياق يحمي الفكرة من الفهم السريع ويمنح القارئ سببًا لمتابعة التفاصيل.",
+        "<strong>خلاصة السياق:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1505,19 +1598,19 @@
     {
       "title": "تحقيق: التمهيد",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434141745746020/3d26c70e-8079-4ebe-b3bc-7e41306cd8b3.png?ex=6a0a9c4d&is=6a094acd&hm=3f79aec174bb50a1d8ee99ec63473cba8059e2c06f1f62250014708e2ea5a156&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف التمهيد من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "التمهيد تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> ما الدور الذي تلعبه الدقائق الأولى في نجاح الحلقة، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> التمهيد يعرّف الجمهور على سبب اللقاء والمسار المتوقع دون إطالة، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع التمهيد مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال التمهيد:</strong> هل يحتاج كل حوار إلى تمهيد طويل؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> كل تمهيد جيد يقلل الارتباك ويدخل المستمع إلى الموضوع بثقة.",
-        "<strong>قراءة المحرر:</strong> معالجة التمهيد تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> الإجابة أن التمهيد الناجح يفتح الباب ولا يحتل الغرفة؛ يقدم سبب الحديث ثم يتركه يتقدم.",
+        "<strong>خلاصة التمهيد:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1525,19 +1618,19 @@
     {
       "title": "تحقيق: النبرة",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434155016650842/b8508c6e-2662-430a-bac5-8958dc3b5329.png?ex=6a0a9c50&is=6a094ad0&hm=8a779da65405137e12b394624bce4170bdc0ffc7a4c3f232bb997219881aea6e&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف النبرة من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "النبرة تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> كيف تغير نبرة المقدم معنى السؤال حتى لو بقيت الكلمات نفسها، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> النبرة قد تجعل السؤال فضوليًا أو هجوميًا أو محايدًا، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع النبرة مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال النبرة:</strong> كيف تغير النبرة معنى السؤال نفسه؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> المقدم المحترف يضبط نبرته كي لا يفرض جوابًا قبل سماعه.",
-        "<strong>قراءة المحرر:</strong> معالجة النبرة تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> النبرة قد تجعل السؤال استجوابًا أو دعوة للتفسير، ولذلك تؤثر في عمق الإجابة قبل صياغتها.",
+        "<strong>خلاصة النبرة:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1545,19 +1638,19 @@
     {
       "title": "تحقيق: المونتاج",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434178005499964/fa20b5e8-5bdb-4ce7-9636-d3209e9d37fc.png?ex=6a0a9c55&is=6a094ad5&hm=9cacc004f6022b4455f41c616b58f4ad7ea504a55fa5be707d899e1a71c7d323&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف المونتاج من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "المونتاج تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> هل يحسن المونتاج الحلقة أم يغير حقيقتها، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> المونتاج الجيد يحذف التكرار والفراغ ويحفظ سياق الإجابة، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع المونتاج مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال المونتاج:</strong> أين ينتهي التهذيب ويبدأ حذف المعنى؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> الخطر يبدأ عندما يتحول القص إلى صناعة معنى لم يقله الضيف.",
-        "<strong>قراءة المحرر:</strong> معالجة المونتاج تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> المونتاج العادل يزيل التكرار والفراغ، لكنه لا يقطع المسار الذي يشرح موقف الضيف.",
+        "<strong>خلاصة المونتاج:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1565,19 +1658,19 @@
     {
       "title": "تحقيق: التوزيع",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434194157764668/7480316a-aa36-4954-8170-0f836dcc5999.png?ex=6a0a9c59&is=6a094ad9&hm=8e551d161f5506b2529375dc6d2f9d1a060e736c9c09931f7ee041629eee136c&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف التوزيع من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "التوزيع تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> لماذا لا تصل بعض الحلقات الجيدة إلى جمهورها المتوقع، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> التوزيع يحتاج عنوانًا واضحًا وصورة مناسبة ومقاطع قصيرة تقود إلى الحلقة كاملة، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع التوزيع مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال التوزيع:</strong> لماذا تصل حلقة ولا تصل أخرى؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> المحتوى القوي يخسر أثره إذا نشر بلا خطة وصول مفهومة.",
-        "<strong>قراءة المحرر:</strong> معالجة التوزيع تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> التوزيع يكشف أثر العنوان والمقطع القصير وتوقيت النشر والمنصة المختارة في عمر الحلقة.",
+        "<strong>خلاصة التوزيع:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1585,19 +1678,19 @@
     {
       "title": "تحقيق: الجمهور",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434208372523148/c4249916-1813-4645-800d-d6faaf4e0e79.png?ex=6a0a9c5c&is=6a094adc&hm=17e22fddcb03db65693d12a02a414b35a31c418e1245842d3fb2422dce188070&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف الجمهور من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "الجمهور تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> من هو جمهور البودكاست السعودي وكيف يختار ما يسمعه، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> يتحرك الجمهور بين المعرفة والترفيه والتجربة الشخصية والاهتمام المحلي، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع الجمهور مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال الجمهور:</strong> من هو الجمهور الفعلي للحلقة؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> فهم الجمهور لا يعني ملاحقته بكل ما يريد بل تقديم ما يستحق وقته.",
-        "<strong>قراءة المحرر:</strong> معالجة الجمهور تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> التحقيق يميز بين جمهور يشاهد للضيف، وجمهور يبحث عن الموضوع، وجمهور يصل عبر مقطع متداول.",
+        "<strong>خلاصة الجمهور:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1605,19 +1698,19 @@
     {
       "title": "تحقيق: الحضور",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434220783472872/8d9582db-9ba1-4b78-bedd-a3cb495e7fa8.png?ex=6a0a9c5f&is=6a094adf&hm=e96ad999bd20d5db01796847f764a1b7c10d30d48fcd8d4c33e88c02f02199c2&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف الحضور من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "الحضور تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> ما الذي يجعل الضيف حاضرًا في الحلقة لا مجرد اسم على العنوان، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> الحضور يصنعه الصدق والقدرة على السرد ووضوح التجربة، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع الحضور مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال الحضور:</strong> ما الذي يجعل حضور البرنامج ثابتًا في الذاكرة؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> الضيف القوي يترك أثرًا عندما يجد سؤالًا يسمح له بفتح ذاكرته لا تكرار سيرته.",
-        "<strong>قراءة المحرر:</strong> معالجة الحضور تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> الحضور يتكون من هوية واضحة وتكرار جودة التجربة، لا من حملة نشر عابرة فقط.",
+        "<strong>خلاصة الحضور:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1625,19 +1718,19 @@
     {
       "title": "تحقيق: المقدم",
       "src": "https://media.discordapp.net/attachments/1327007975604355153/1505434248423669863/ab00d53e-0910-4439-a64b-f37e47e52481.png?ex=6a0a9c66&is=6a094ae6&hm=bc027ec32cc8b4a83ca264b0a465c8a535c70978386e51ca384a3cb488ca8f7d&=&format=webp&quality=lossless",
-      "lead": "يفتح التحقيق ملف المقدم من خلال سؤال رئيسي يبحث عن السبب والأثر والنتيجة داخل تجربة البودكاست السعودي.",
+      "lead": "المقدم تحقيق يطرح سؤالًا محددًا حول الظاهرة، ثم يفكك زواياها من خلال الشواهد والسياق والنتيجة.",
       "body": [
-        "<strong>السؤال الرئيسي:</strong> ما الذي يميز المقدم القادر على قيادة حوار طويل، وهو سؤال لا تكفيه إجابة سريعة لأنه يرتبط بطريقة صناعة الحلقة واستقبالها.",
-        "<strong>الشواهد:</strong> المقدم يجمع بين التحضير والمرونة ومعرفة متى يتدخل ومتى يصمت، كما يظهر في العنوان، والتمهيد، وترتيب الحوار، وطريقة تحويل المقطع إلى مادة قابلة للتداول.",
-        "<strong>زوايا مرتبطة:</strong> يتقاطع المقدم مع اختيار الضيف، ودرجة التحضير، وحجم التدخل في المونتاج، ومكان نشر الحلقة بعد اكتمالها."
+        "<strong>سؤال المقدم:</strong> ما حدود دور المقدم بين قيادة الحوار وترك المساحة؟",
+        "<strong>زوايا التحقق:</strong> ينظر التحقيق إلى العنوان من خلال أثره على الجمهور، وطريقة ظهوره داخل الحلقة، وما يكشفه من قرارات تحريرية وفنية.",
+        "<strong>الشواهد:</strong> تظهر المؤشرات في مدة المشاهدة، وضوح العنوان، دقة الصورة، حضور الضيف، وتفاعل الجمهور مع الفكرة بعد نشرها."
       ],
       "more": [
-        "<strong>ما وصل إليه التحقيق:</strong> النجاح الحقيقي يظهر عندما يخرج الضيف أفضل مما كان سيقوله وحده.",
-        "<strong>قراءة المحرر:</strong> معالجة المقدم تحتاج اختصارًا في العبارة وبعدًا عن الحشو، لأن قوة التحقيق تظهر عندما يجيب عن السؤال الذي فتحه من غير أن يبتعد عن محوره."
+        "<strong>ما تكشفه القراءة:</strong> المقدم المؤثر يختار السؤال المناسب ثم يصمت بما يكفي لتظهر إجابة حقيقية.",
+        "<strong>خلاصة المقدم:</strong> ينتهي التحقيق إلى نتيجة مباشرة تساعد القارئ على فهم القضية من داخلها، لا من خلال انطباع عام أو حكم سريع."
       ],
       "tags": [
         "تحقيق",
-        "أسئلة",
+        "شواهد",
         "تحليل"
       ],
       "sources": []
@@ -1678,12 +1771,12 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-10">
         <div class="rounded-[2rem] overflow-hidden border border-white/60 shadow-[0_24px_70px_rgba(122,90,46,.10)] bg-gradient-to-b from-[#e7ded2] to-[#f4f1ea]">
           <div class="relative px-5 sm:px-10 py-14 md:py-24 text-center">
+            <div class="hero-badge hero-main-badge display-font">مُلهم.. نبض البودكاست السعودي</div>
             <div class="absolute inset-0 opacity-20 pointer-events-none">
-              <div class="absolute w-[720x] h-[620px] bg-[#7a856f] rounded-full blur-3xl top-[-220px] right-[-200px] animate-pulse"></div>
+              <div class="absolute w-[620px] h-[620px] bg-[#7a856f] rounded-full blur-3xl top-[-220px] right-[-200px] animate-pulse"></div>
               <div class="absolute w-[520px] h-[520px] bg-[#7a5a2e] rounded-full blur-3xl bottom-[-200px] left-[-120px] animate-pulse"></div>
             </div>
             <div class="relative z-10 max-w-5xl mx-auto">
-              <div class="hero-badge display-font">مُلهم.. نبض البودكاست السعودي</div>
               <h2 class="display-font text-5xl sm:text-7xl md:text-8xl font-black text-[var(--brown)] leading-tight mb-6">صفحة سعودية تجمع الخبر والسرد والصوت</h2>
               <p class="text-xl md:text-2xl leading-loose text-[var(--olive)] max-w-4xl mx-auto">صحيفة إلكترونية مصممة حول المشهد السعودي فقط، وفيها برامج ومقالات وتحقيقات وتقارير وأخبار وتفاعل، بلغة تحريرية رسمية ومتماسكة.</p>
               <div class="mt-10 flex flex-wrap justify-center gap-4">
@@ -1911,8 +2004,8 @@
 
   <div id="detailModal" class="fixed inset-0 z-[140] flex items-center justify-center p-4 hidden overlay-hidden soft">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" data-close-modal></div>
-    <div class="relative z-10 w-full max-w-6xl bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-black/5">
-      <div class="p-5 md:p-6 flex items-start justify-between gap-4 border-b border-black/5">
+    <div class="detail-panel relative z-10 w-full max-w-6xl bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-black/5">
+      <div class="detail-head p-5 md:p-6 flex items-start justify-between gap-4 border-b border-black/5">
         <div class="min-w-0">
           <div id="detailKicker" class="text-sm text-[var(--olive)] font-bold mb-2">التفاصيل</div>
           <h3 id="detailTitle" class="display-font text-3xl md:text-4xl font-black text-[var(--brown)] leading-tight"></h3>
@@ -1984,7 +2077,8 @@
       voted: localStorage.getItem('mulham_voted_once_v4') === '1',
       votes: JSON.parse(localStorage.getItem('mulham_votes_v32') || 'null') || { fanjan:0, jinaya:0, mosho:0, sardyat:0 },
       programQuery:'',
-      programFilter:'all'
+      programFilter:'all',
+      modalScrollY:0
     };
 
     const USER_LOGO_URL = "https://media.discordapp.net/attachments/937276649261633546/1505573694125244456/image.png?ex=6a0b1e44&is=6a09ccc4&hm=04f2443f20a4cd817d397a7b7a3acba01371588e388e08170cb185a10971a566&=&format=webp&quality=lossless";
@@ -3362,9 +3456,16 @@ function buildItems(section){ return IMAGE_MANIFEST[section].map((entry, idx) =>
       const item = ALL_ITEMS.find(x => x.id === id);
       if (!item) return;
       state.current = item;
-      $('#detailModal').classList.remove('hidden', 'overlay-hidden');
-      $('#detailModal').classList.add('overlay-visible');
+      const modal = $('#detailModal');
+      modal.classList.remove('hidden', 'overlay-hidden');
+      modal.classList.add('overlay-visible');
+      state.modalScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      document.body.classList.add('modal-open');
+      document.body.style.top = `-${state.modalScrollY}px`;
       document.body.style.overflow = 'hidden';
+      modal.scrollTop = 0;
+      const panel = modal.querySelector('.detail-panel');
+      if (panel) panel.scrollTop = 0;
       $('#detailKicker').textContent = item.section === 'programs' ? 'برنامج' : item.section === 'articles' ? 'مقال' : item.section === 'investigations' ? 'تحقيق' : item.section === 'reports' ? 'تقرير' : 'خبر';
       $('#detailTitle').textContent = item.title;
       $('#detailImage').src = item.src;
@@ -3412,7 +3513,11 @@ function buildItems(section){ return IMAGE_MANIFEST[section].map((entry, idx) =>
       modal.classList.add('overlay-hidden');
       modal.classList.remove('overlay-visible');
       setTimeout(() => modal.classList.add('hidden'), 180);
+      const y = state.modalScrollY || 0;
+      document.body.classList.remove('modal-open');
       document.body.style.overflow = '';
+      document.body.style.top = '';
+      window.scrollTo(0, y);
     }
 
     function openDev(){
